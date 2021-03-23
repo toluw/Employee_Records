@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.SigninActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:id="@+id/linear"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:background="@drawable/card"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/username1"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:inputType="textPersonName"
+            android:hint="Enter Username"
+            android:padding="8dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:background="@drawable/card"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/password1"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:inputType="textPassword"
+            android:hint="Enter Password"
+            android:padding="8dp"
+            android:layout_height="wrap_content" />
+
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:id="@+id/a"
+            android:textSize="16sp"
+            android:background="@drawable/but"
+            android:text="Sign In"
+            android:layout_marginTop="30dp"
+            />
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

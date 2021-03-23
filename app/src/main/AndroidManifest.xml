@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.up.employee">
+
+    <application
+        android:name=".Application.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Employee"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".ui.EmployeeActivity"
+            android:theme="@style/Theme.Employee.NoActionBar"></activity>
+
+        <activity android:name=".ui.EmployeeDetailsActivity"
+            android:label="About Employee"
+            android:theme="@style/Theme.Employee"/>
+        <activity android:name=".ui.ViewEmployeeActivity"
+            android:label="View Employees"
+            android:theme="@style/Theme.Employee"/>
+        <activity android:name=".ui.CreateEmployeeActivity"
+            android:label="Create Employee"
+
+            android:theme="@style/Theme.Employee"/>
+
+        <activity android:name=".ui.SignupContinueActivity"
+            android:label="Signup"
+            android:theme="@style/Theme.Employee"/>
+        <activity android:name=".ui.SignupActivity"
+            android:label="Sign up"
+            android:theme="@style/Theme.Employee"/>
+        <activity
+            android:name=".ui.SigninActivity"
+            android:label="@string/title_activity_signin"
+            android:theme="@style/Theme.Employee" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Employee.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+</manifest>
