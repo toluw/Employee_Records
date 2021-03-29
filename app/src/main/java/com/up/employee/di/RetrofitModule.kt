@@ -4,6 +4,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.up.employee.data.remote.EmployeeApi
 import com.up.employee.data.remote.PrintfulApi
+import com.up.employee.util.Url
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,7 +31,7 @@ class RetrofitModule {
     fun provideEmployeeRetrofit(gson: Gson): Retrofit.Builder{
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl("http://34.65.124.52/byte/")
+                .baseUrl(Url.BASE_URL)
 
     }
 
