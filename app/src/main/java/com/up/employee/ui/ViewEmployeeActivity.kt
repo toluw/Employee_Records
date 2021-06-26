@@ -59,8 +59,9 @@ class ViewEmployeeActivity : AppCompatActivity(), SearchView.OnQueryTextListener
         setContentView(R.layout.activity_view_employee)
         initialize()
         button.setOnClickListener { retry() }
+        observeData()
+        employeeViewModel.loadEmployee()
 
-        getData()
     }
 
     fun initialize(){
@@ -70,8 +71,8 @@ class ViewEmployeeActivity : AppCompatActivity(), SearchView.OnQueryTextListener
         relative = findViewById<RelativeLayout>(R.id.relative)
     }
 
-    fun getData(){
-       employeeViewModel.get_employee().observe(this, Observer {
+    fun observeData(){
+       employeeViewModel.getEmployee.observe(this, Observer {
            when (it) {
                is DataState.Success -> {
 
@@ -162,7 +163,7 @@ class ViewEmployeeActivity : AppCompatActivity(), SearchView.OnQueryTextListener
 
    fun retry(){
         relative.visibility = View.GONE
-        getData()
+       employeeViewModel.loadEmployee()
     }
 
     fun initialList(){

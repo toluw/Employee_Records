@@ -6,6 +6,8 @@ import com.up.employee.data.model.*
 import com.up.employee.data.remote.EmployeeApi
 import com.up.employee.util.DataState
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import retrofit2.http.Field
 import javax.inject.Inject
 
@@ -74,8 +76,8 @@ constructor(private val employeeApi: EmployeeApi){
             }
         }
 
-    fun get_employee(): LiveData<DataState<GetEmployee>> =
-        liveData(Dispatchers.IO) {
+   suspend fun get_employee(): Flow<DataState<GetEmployee>> =
+        flow {
             emit(DataState.Loading)
             try {
                 val result = employeeApi.get_employee()

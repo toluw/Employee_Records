@@ -1,11 +1,16 @@
 package com.up.employee.viewmodel
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.up.employee.data.model.*
 import com.up.employee.data.repository.EmployeeRepository
 import com.up.employee.util.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -53,7 +58,17 @@ constructor(
         return  _employeeRepository.employee_signup(firstname,lastname,gender,dob,address,country,designation,image)
     }
 
-    fun get_employee(): LiveData<DataState<GetEmployee>>{
-        return  _employeeRepository.get_employee()
+
+
+    private val _getEmployee: MutableLiveData<DataState<GetEmployee>> = MutableLiveData()
+    val getEmployee: LiveData<DataState<GetEmployee>>
+    get() = _getEmployee
+
+     fun loadEmployee(){
+        viewModelScope.launch {
+          _employeeRepository.get_employee().onEach {
+              _getEmployee.value = it
+          }.launchIn(viewModelScope)
+        }
     }
 }
