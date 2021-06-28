@@ -149,6 +149,7 @@ class ViewEmployeeActivity : AppCompatActivity(), SearchView.OnQueryTextListener
 
                }
                is DataState.Error -> {
+                  Toast.makeText(applicationContext, it.exception.message,Toast.LENGTH_LONG).show()
                    dialog.visibility = View.GONE
                    relative.visibility = View.VISIBLE
 
